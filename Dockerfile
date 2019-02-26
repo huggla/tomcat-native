@@ -19,7 +19,7 @@ RUN apk add $BUILDDEPS \
  && mkdir -p "$DESTDIR" \
  && make install \
  && chrpath --delete "$DESTDIR/usr/lib/libtcnative-1.so" \
- &&	rm -f "$DESTDIR/usr/lib/libtcnative-1.la" "$DESTDIR/usr/lib/libtcnative-1.a" "$DESTDIR/usr/lib/pkgconfig/tcnative-1.pc" \
+ && rm -f "$DESTDIR/usr/lib/libtcnative-1.la" "$DESTDIR/usr/lib/libtcnative-1.a" "$DESTDIR/usr/lib/pkgconfig/tcnative-1.pc" \
  && rmdir "$DESTDIR/usr/bin"
  
 FROM huggla/busybox:$TAG as image
