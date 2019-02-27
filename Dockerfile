@@ -12,8 +12,8 @@ RUN apk add $BUILDDEPS \
  && buildDir="$(mktemp -d)" \
  && cd $buildDir \
  && wget "$DOWNLOAD" \
- && gunzip $(basename "$DOWNLOAD") \
- && ls -la \
+ && tar -xvp -f "$(basename "$DOWNLOAD")" \
+ && rm "$(basename "$DOWNLOAD")" \
  && cd tomcat-native-$VERSION-src/native \
  && ./configure --prefix=/usr --with-apr=/usr/bin/apr-1-config --with-java-home=/usr/lib/jvm/default-jvm --with-ssl=yes \
  && make \
