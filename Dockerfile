@@ -13,6 +13,7 @@ RUN apk add $BUILDDEPS \
  && cd $buildDir \
  && wget "$DOWNLOAD" \
  && gunzip $(basename "$DOWNLOAD") \
+ && ls -la \
  && cd tomcat-native-$VERSION-src/native \
  && ./configure --prefix=/usr --with-apr=/usr/bin/apr-1-config --with-java-home=/usr/lib/jvm/default-jvm --with-ssl=yes \
  && make \
